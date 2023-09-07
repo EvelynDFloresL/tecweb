@@ -38,6 +38,7 @@
 
 
     <p>a. Ahora muestra el contenido de cada variable </p>
+    <p><strong>Resultados:</strong></p>
     <?php
     $a = "ManejadorSQL";
     $b = 'MySQL';
@@ -58,6 +59,7 @@
     $b = &$a;
     ?>
     <p> c. Vuelve a mostrar el contenido de cada uno </p>
+    <p><strong>Resultados:</strong></p>
     <?php
     echo " a= $a <br>
     b=$b <br>
@@ -70,7 +72,63 @@
         En el segundo resultado a la variable "a" le cambiamos su valor y como "b" <br>
         hace referencia a la variable "a" como tambien "c" se muestra el mismo valor
     </p>
+    <?php
+    unset($a,$b,$c);
+    ?>
 
+    <h2>Ejercicio 3</h2>
+    <p>3. Muestra el contenido de cada variable inmediatamente después de cada asignación, verificar<br>
+    la evolución del tipo de estas variables (imprime todos los componentes de los arreglo): <br>
+    $a = “PHP5”; <br>
+    $z[] = &$a; <br>
+    $b = “5a version de PHP”; <br>
+    $c = $b*10; <br>
+    $a .= $b; <br>
+    $b *= $c; <br>
+    $z[0] = “MySQL”;
+    </p>
+
+    <p><strong>Resultados:</strong></p>
+    <?php
+    $a = "PHP5";
+    echo "a: $a <br>";
+    
+    $z[] = &$a;
+    echo "z: "; 
+    var_dump($z); 
+
+    $b = "5a version de PHP";
+    echo "<br> b: $b <br>";
+
+    @ $c = $b*10;
+    echo "c: $c <br>";
+
+    $a .= $b;
+    echo "a: $a <br>";
+
+    @$b *= $c;
+    echo "b: $b <br>";
+
+    $z[0] = "MySQL";
+    echo "z: ";
+    var_dump($z);
+
+    ?>
+
+    <h2>Ejercicio 4</h2>
+    <p>4. Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda <br>de la matriz $GLOBALS o del modificador global de PHP.</p>
+    <p><strong>Resultados:</strong></p>
+
+    <?php
+    global $a, $b, $c, $z;
+    echo "Valor de a: $a <br>";
+    echo "Valor de b: $b <br>";
+    echo "Valor de c: $c <br>";
+    echo "Valor de z: ";
+    var_dump($z);
+    "<br>";
+    unset($a, $b, $c, $z);
+    ?>
 
 </body>
 
