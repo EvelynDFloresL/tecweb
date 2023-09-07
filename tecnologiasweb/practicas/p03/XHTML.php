@@ -67,40 +67,40 @@
     ?>
     <p> <strong>d. Describe en y muestra en la página obtenida qué ocurrió en el segundo bloque de asignaciones</strong></p>
     <p>En el primer resultado ya le habiamos asignado valores a las variables <br>
-        asi solo mostramos su valor con un echo y la variable "c" toma el valor <br> 
+        asi solo mostramos su valor con un echo y la variable "c" toma el valor <br>
         de la variable "a". <br>
         En el segundo resultado a la variable "a" le cambiamos su valor y como "b" <br>
         hace referencia a la variable "a" como tambien "c" se muestra el mismo valor
     </p>
     <?php
-    unset($a,$b,$c);
+    unset($a, $b, $c);
     ?>
 
     <h2>Ejercicio 3</h2>
     <p>3. Muestra el contenido de cada variable inmediatamente después de cada asignación, verificar<br>
-    la evolución del tipo de estas variables (imprime todos los componentes de los arreglo): <br>
-    $a = “PHP5”; <br>
-    $z[] = &$a; <br>
-    $b = “5a version de PHP”; <br>
-    $c = $b*10; <br>
-    $a .= $b; <br>
-    $b *= $c; <br>
-    $z[0] = “MySQL”;
+        la evolución del tipo de estas variables (imprime todos los componentes de los arreglo): <br>
+        $a = “PHP5”; <br>
+        $z[] = &$a; <br>
+        $b = “5a version de PHP”; <br>
+        $c = $b*10; <br>
+        $a .= $b; <br>
+        $b *= $c; <br>
+        $z[0] = “MySQL”;
     </p>
 
     <p><strong>Resultados:</strong></p>
     <?php
     $a = "PHP5";
     echo "a: $a <br>";
-    
+
     $z[] = &$a;
-    echo "z: "; 
-    var_dump($z); 
+    echo "z: ";
+    var_dump($z);
 
     $b = "5a version de PHP";
     echo "<br> b: $b <br>";
 
-    @ $c = $b*10;
+    @$c = $b * 10;
     echo "c: $c <br>";
 
     $a .= $b;
@@ -129,6 +129,85 @@
     "<br>";
     unset($a, $b, $c, $z);
     ?>
+
+    <h2>Ejercicio 5</h2>
+    <p>Dar el valor de las variables $a, $b, $c al final del siguiente script:
+        <br>$a = “7 personas”;
+        <br>$b = (integer) $a;
+        <br>$a = “9E3”;
+        $c = (double) $a;
+    </p>
+    <p><strong>Resultados:</strong></p>
+    <?php
+    $a = "7 personas";
+    $b = (int) $a;
+    $a = "9E3";
+    $c = (float) $a;
+
+    echo "
+    a: $a <br>
+    b: $b <br>
+    c: $c <br>
+    <p>Las variables se van tomando dependiendo el tipo por ejemplo b toma los valores enteros de <br>
+    a como podemos ver solo mostrará el 7.</p>";
+    unset($a, $b, $c);
+    ?>
+
+    <h2>Ejercicio 6</h2>
+    <p>6. Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas usando la función var_dump(<datos>). <br>
+            Después investiga una función de PHP que permita transformar el valor booleano de $c y $e en uno que se pueda mostrar con un echo:
+            <br> $a = “0”;
+            <br> $b = “TRUE”;
+            <br> $c = FALSE;
+            <br> $d = ($a OR $b);
+            <br> $e = ($a AND $c);
+            <br> $f = ($a XOR $b);
+    </p>
+    <p><strong>Resultados:</strong></p>
+
+    <?php
+    $a = "0";
+    $b = "TRUE";
+    $c = FALSE;
+    $d = ($a or $b);
+    $e = ($a and $c);
+    $f = ($a xor $b);
+
+    echo '<ul>';
+    echo '<li>$a: ';
+    echo var_dump($a);
+    echo '</li>';
+    echo '<li>$b: ';
+    echo var_dump($b);
+    echo '</li>';
+    echo '<li>$c: ';
+    echo var_dump($c);
+    echo '</li>';
+    echo '<li>$d: ';
+    echo var_dump($d);
+    echo '</li>';
+    echo '<li>$e: ';
+    echo var_dump($e);
+    echo '</li>';
+    echo '<li>$f: ';
+    echo var_dump($f);
+    echo '</li>';
+    echo '</ul>';
+
+    echo'Utilizamos boolval() para poder convertir los valores boleanos explícitos,
+    luego los pasamos a representaciones de cadena con var_export() para luego mostrarlo. <br>';
+    $c_bool = boolval($c);
+    $e_bool = boolval($e);
+    
+    $c_string = var_export($c_bool, true);
+    $e_string = var_export($e_bool, true);
+    echo "c = $c_string";
+    echo "<br>";
+    echo "e = $e_string";
+
+    ?>
+
+    
 
 </body>
 
