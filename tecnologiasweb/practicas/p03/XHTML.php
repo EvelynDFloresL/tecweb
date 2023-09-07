@@ -194,11 +194,11 @@
     echo '</li>';
     echo '</ul>';
 
-    echo'Utilizamos boolval() para poder convertir los valores boleanos explícitos,
+    echo 'Utilizamos boolval() para poder convertir los valores boleanos explícitos,
     luego los pasamos a representaciones de cadena con var_export() para luego mostrarlo. <br>';
     $c_bool = boolval($c);
     $e_bool = boolval($e);
-    
+
     $c_string = var_export($c_bool, true);
     $e_string = var_export($e_bool, true);
     echo "c = $c_string";
@@ -207,7 +207,21 @@
 
     ?>
 
-    
+    <h2>Ejercicio 7</h2>
+    <p>7. Usando la variable predefinida $_SERVER, determina lo siguiente:
+       <br> a. La versión de Apache y PHP,
+       <br> b. El nombre del sistema operativo (servidor),
+       <br> c. El idioma del navegador (cliente).
+    </p>
+    <p><strong>Resultados:</strong></p>
+
+    <?php
+        echo $_SERVER['SERVER_SIGNATURE'];
+        echo "<br>";
+        echo $_SERVER['SERVER_NAME'];
+        echo "<br>";
+        echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        ?>
 
 </body>
 
